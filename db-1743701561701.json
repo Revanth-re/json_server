@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "name": "revanth",
+      "age": "13",
+      "id": 1,
+      "gender": ""
+    },
+    {
+      "name": "werty",
+      "age": "iuytr",
+      "p_price": "wertyu",
+      "p_product": "qwer",
+      "id": 2
+    },
+    {
+      "name": "apoorva",
+      "age": "23",
+      "p_price": "12",
+      "id": 3
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            justify-content: center;
+        }
+button {
+            width: 20vw;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 8px 0;
+            
+            transition: background-color 0.3s;
+        }
+
+        /* Hover effect for buttons */
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Placeholder styling for inputs */
+        input::placeholder {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Adding a title */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Adding some margin to the form container */
+        .form-container {
+            margin: 20px;
+        }
+        input{
+            width: 20vw;
+            padding: 1%;
+            text-align: center;
+        }
+        .container_div{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 10px;
+            text-align: center;
+            margin: 2%;
+        }
+        .child_div{
+            border:2px solid;
+            background-color: #d7fcd8;
+            padding: 1%;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        }
+       
+.main_div{
+display:flex;
+justify-content: center;
+align-content: center;
+gap: 10px;
+}
+.main_div div{
+    border: 2px solid;
+    padding: 1%;
+    justify-content: center;
+    text-align: center
+;
+}
+    </style>
+
+</head>
+<body>
+
+ <div class="main_div">
+    <!-- <button id="btn">click</button> <br> -->
+     <div>
+    <input placeholder="productID" type="text" id="crinp1">
+<input placeholder="productName" type="text" id="crinp2">
+<input placeholder="Product-Price" type="text" id="crinp3">
+<input placeholder="Product-Quantity" type="text" id="crinp4">
+    <button onclick="func2()" id="btn2">post</button>
+</div>
+<div>
+    <!-- <input placeholder="name" type="number" id="id1">
+    <input placeholder="name" type="text" id="patch1">
+    <input placeholder="age" type="text" id="patch2">  -->
+    <input placeholder="productID" type="text" id="id1">
+    <input placeholder="productName" type="text" id="patch1">
+    <input placeholder="Product-Price" type="text" id="patch2">
+    <input placeholder="Product-Quantity" type="text" id="patch3">
+
+    <button onclick="patch()" id="btn2">patch</button> 
+</div>
+<!-- <div>
+    <input placeholder="name" type="number" id="id2">
+    <input placeholder="name" type="text" id="put1">
+    <input placeholder="age" type="text" id="put2"> 
+    <button onclick="put()" id="btn2">put</button> 
+</div> -->
+<div>
+    <input placeholder="productID" type="number" id="id3"> 
+    <BUTTON onclick="DELETE()">DELETE</BUTTON> 
+</div>
+</div>
+    <script>
+// let=btn1=document.getElementById("btn")
+// btn1.addEventListener("click",function(){
+// })
+async function api(){
+
+let url= await fetch(`http://localhost:3000/data`)
+let response= await url.json()
+console.log(response);
+let div=document.createElement("div")
+div.classList.add("container_div")
+response.forEach((val)=>{
+console.log(val.p_price);
+let child=document.createElement("div")
+child.classList.add("child_div")
+let h3=document.createElement("h3")
+h3.innerText="Name:"+val.name
+let h4=document.createElement("h4")
+h4.innerText="Age:"+val.age
+let h5=document.createElement("h4")
+h5.innerText="Id:"+val.id
+let h6=document.createElement("h4")
+h6.innerText="Age:"+val.p_price
+let h7=document.createElement("h4")
+h7.innerText="Id:"+val.p_product
+child.append(h3,h4,h5,h6,h7)
+div.append(child)
+})
+document.body.append(div)
+}
+api()
+// let btn2=document.getElementById("btn2").addEventListener("click",func2)
+
+
+async function func2(params) {
+    let crinp1=document.getElementById("crinp1").value
+    let crinp2=document.getElementById("crinp2").value
+    let crinp3=document.getElementById("crinp3").value
+    let crinp4=document.getElementById("crinp3").value
+    let obj={
+        name:crinp1,
+        age:crinp2,
+        p_price:crinp3
+        
+    }
+    let url= await fetch(`http://localhost:3000/data`,{method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },body:JSON.stringify(obj)
+    })
+    
+
+}
+
+async function patch(params) {
+    let id1=document.getElementById("id1").value
+    let patch1=document.getElementById("patch1").value
+    let patch2=document.getElementById("patch2").value
+    let patch3=document.getElementById("patch3").value
+ 
+   
+    id=id1
+    let obj={id:id1,
+        name:patch1,
+        age:patch2,
+        p_price:patch3
+    }
+   
+    let url= await fetch(`http://localhost:3000/data/${id}`,{method:"PATCH",
+        headers:{
+            "Content-Type":"application/json"
+        },body:JSON.stringify(obj)
+    })
+    alert("data updated successfully")
+}
+
+async function put(params) {
+    let id2=document.getElementById("id2").value
+    let put1=document.getElementById("put1").value
+    let put2=document.getElementById("put2").value
+   
+    let obj={
+        id:id2,
+        name:put1,
+        gender:put2,
+       
+    }
+    id=id2
+    let url= await fetch(`http://localhost:3000/data/${id}`,{method:"PATCH",
+        headers:{
+            "Content-Type":"application/json"
+        },body:JSON.stringify(obj)
+    })
+    alert("data replaced successfully")
+}
+async function DELETE(params) {
+    let id3=document.getElementById("id3").value
+
+    id=id3
+    let url= await fetch(`http://localhost:3000/data/${id}`,{method:"DELETE"})
+     
+    alert("data deleted successfully")
+}
+
+    </script>
+</body>
+</html>
