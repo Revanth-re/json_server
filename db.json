@@ -1,23 +1,52 @@
 {
   "data": [
     {
-      "name": "revanth",
-      "age": "13",
-      "id": 1,
-      "gender": ""
-    },
-    {
-      "name": "werty",
-      "age": "iuytr",
-      "p_price": "wertyu",
-      "p_product": "qwer",
+      "name": "bro",
+      "age": "1",
+      "p_price": "2",
       "id": 2
     },
     {
-      "name": "apoorva",
-      "age": "23",
-      "p_price": "12",
+      "name": "bro",
+      "age": "1",
+      "p_price": "2",
       "id": 3
+    },
+    {
+      "name": "bro",
+      "age": "1",
+      "p_price": "2",
+      "id": 4
+    },
+    {
+      "name": "bro",
+      "age": "1",
+      "p_price": "2",
+      "id": 5
+    },
+    {
+      "name": "bro",
+      "age": "1",
+      "p_price": "2",
+      "id": 6
+    },
+    {
+      "name": "bro",
+      "age": "1",
+      "p_price": "2",
+      "id": 7
+    },
+    {
+      "name": "bro",
+      "age": "1",
+      "p_price": "2",
+      "id": 8
+    },
+    {
+      "name": "bro",
+      "age": "1",
+      "p_price": "2",
+      "id": 9
     }
   ]
 }
