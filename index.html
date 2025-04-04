@@ -56,6 +56,13 @@ button {
             text-align: center;
             margin: 2%;
         }
+      
+        @media (max-width:768px) {
+            
+            .container_div{
+            display: grid;
+            grid-template-columns: auto;
+        }}
         .child_div{
             border:2px solid;
             background-color: #d7fcd8;
@@ -164,7 +171,7 @@ async function func2(params) {
             "Content-Type":"application/json"
         },body:JSON.stringify(obj)
     })
-    alert("data updated successfully")
+    alert("data posted successfully")
 
 }
 
@@ -213,7 +220,7 @@ async function DELETE(params) {
     let id3=document.getElementById("id3").value
 
     id=id3
-    let url= await fetch(`http://localhost:3000/data/${id}`,{method:"DELETE"})
+    let url= await fetch(`https://json-server-2-gjkh.onrender.com/data/${id}`,{method:"DELETE"})
      
     alert("data deleted successfully")
 }
