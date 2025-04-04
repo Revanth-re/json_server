@@ -120,7 +120,7 @@ gap: 10px;
 // })
 async function api(){
 
-let url= await fetch(`http://localhost:3000/data`)
+let url= await fetch(`https://json-server-2-gjkh.onrender.com/data`)
 let response= await url.json()
 console.log(response);
 let div=document.createElement("div")
@@ -159,7 +159,7 @@ async function func2(params) {
         p_price:crinp3
         
     }
-    let url= await fetch(`http://localhost:3000/data`,{method:"POST",
+    let url= await fetch(`https://json-server-2-gjkh.onrender.com/data`,{method:"POST",
         headers:{
             "Content-Type":"application/json"
         },body:JSON.stringify(obj)
@@ -182,7 +182,7 @@ async function patch(params) {
         p_price:patch3
     }
    
-    let url= await fetch(`http://localhost:3000/data/${id}`,{method:"PATCH",
+    let url= await fetch(`https://json-server-2-gjkh.onrender.com/data/${id}`,{method:"PATCH",
         headers:{
             "Content-Type":"application/json"
         },body:JSON.stringify(obj)
@@ -202,7 +202,7 @@ async function put(params) {
        
     }
     id=id2
-    let url= await fetch(`http://localhost:3000/data/${id}`,{method:"PATCH",
+    let url= await fetch(`https://json-server-2-gjkh.onrender.com/data/${id}`,{method:"PATCH",
         headers:{
             "Content-Type":"application/json"
         },body:JSON.stringify(obj)
